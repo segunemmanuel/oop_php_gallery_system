@@ -9,12 +9,23 @@ Admin
 </h1>
 <?php
  
+ 
 
-$user=new User();
-$result_set=$user->find_all_users();
-while($row=mysqli_fetch_array($result_set)){
-echo $row['username'];
- }
+// $result_set=User::find_all_users();
+// while($row=mysqli_fetch_array($result_set)){
+// echo $row['username'];
+// echo "<br>";
+//  }
+
+
+$result_get=User::find_all_users_by_id(3);
+echo $result_get['username'];
+ 
+
+
+
+
+
 
 ?>
 <ol class="breadcrumb">
