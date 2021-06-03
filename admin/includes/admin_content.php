@@ -16,7 +16,11 @@ Admin
 //  }
 
 
+$found_user=User::find_all_users_by_id(3);
+$user=User::instantiation(($found_user));
+
 echo $user->id;
+
 
 
 ?>
