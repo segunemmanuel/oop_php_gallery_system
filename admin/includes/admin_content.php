@@ -9,17 +9,9 @@ Admin
 </h1>
 <?php
 
-// $result_set=User::find_all_users();
-// while($row=mysqli_fetch_array($result_set)){
-// echo $row['username'];
-// echo "<br>";
-//  }
+$found_user=User::find_all_users_by_id(1);
 
-
-$found_user=User::find_all_users_by_id(3);
-$user=User::instantiation(($found_user));
-
-echo $user->id;
+echo  $found_user->username;
 
 
 
