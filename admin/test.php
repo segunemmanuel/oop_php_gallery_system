@@ -4,7 +4,4 @@
 
 $bmw=new Car;
 $bmw->run();
-
-
-
 ?>
