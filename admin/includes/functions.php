@@ -20,4 +20,9 @@ die("This file named{$class}.php not found");
 }
 
 
+function redirect($location){
+    return header("Location:{$location}");
+
+}
+
 ?>
