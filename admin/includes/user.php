@@ -78,8 +78,38 @@ return array_key_exists($the_attribute,$object_prop);
 }
 
 
+ 
+
+public function create(){
+    global $database;
+    $sql="INSERT INTO users (username, password,first_name,last_name)";
+$sql.="VALUES('";
+$sql.=$database->escape_string($this->username). " ', ' ";
+$sql.=$database->escape_string($this->password). " ', ' ";
+$sql.=$database->escape_string($this->firstname). " ', ' ";
+$sql.=$database->escape_string($this->lastname). " ')  ";
+
+
+if($database->query($sql)){
+    $this->id=$database->the_insert_id();
+    return true;
 
 }
+else{
+return false;
+}
+
+
+
+
+}
+
+
+}
+// End of user
+
+
+
 
 
 $user=new User;
