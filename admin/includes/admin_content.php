@@ -9,18 +9,21 @@ Admin
 </h1>
 <?php
 
-$found_user=User::find_all_users_by_id(1);
+// $found_user=User::find_all_users_by_id(1);
 
-echo  $found_user->username;
+// echo  $found_user->username;
 
+// $user= new User();
+// $user->username="Segun  ";
+// $user->password="Adyemu ";
+// $user->firstname="SEmmai ";
+// $user->lastname="dbuifbib ";
 
-$user= new User();
-$user->username="Some username here ";
-$user->password="Some password here ";
-$user->firstname="Some firstanme here ";
-$user->lastname="Some lastname here ";
+// // Inserting the user
+// $user->create();
 
-
+$user=User::find_all_users_by_id(3);
+$user->delete();
 
 
 ?>
