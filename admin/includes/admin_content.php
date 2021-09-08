@@ -22,8 +22,15 @@ Admin
 // // Inserting the user
 // $user->create();
 
-$user=User::find_all_users_by_id(3);
-$user->delete();
+// $user=User::find_all_users_by_id(3);
+// $user->delete();
+
+
+// $user=User::find_all_users_by_id(3);
+$user->username="Hopes";
+$user->save();
+
+
 
 
 ?>
