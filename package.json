@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/segunemmanuel/oop_php_gallery_system/issues"
   },
-  "homepage": "https://github.com/segunemmanuel/oop_php_gallery_system#readme"
+  "homepage": "https://github.com/segunemmanuel/oop_php_gallery_system#readme",
+  "dependencies": {
+    "bootstrap": "^5.1.1"
+  }
 }
