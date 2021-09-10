@@ -103,7 +103,7 @@ return $properties;
 
 public function save(){
 // abstraction users
-    return isset($this->id) ? $this->update(): $this->create();
+    return isset($this->id)? $this->update(): $this->create();
 }
 
 
@@ -115,7 +115,7 @@ public function create(){
     global $database;
 $properties=$this->properties();
 
-    $sql="INSERT INTO " . self::$db_table."(". implode("," , array_keys($properties))   . " ) ";
+    $sql="INSERT INTO " . self::$db_table. " ( ". implode("," , array_keys($properties))   . " ) ";
 $sql.="VALUES(' ".      implode(" ','  " , array_values($properties))        ."  ' ) ";
 
 
@@ -137,12 +137,18 @@ return false;
 
 public function update(){
     global $database;
+
+    $properties=$this->properties();
+    $properties_pairs=array();
+    foreach($properties as $key=>$value){
+        $properties_pairs[]="{$key}='{$value}'";
+
+    }
+    
     $sql="UPDATE " . self::$db_table." SET ";
-$sql .= "username='".$database->escape_string($this->username)  . " ', ";
-$sql .= "password='".$database->escape_string($this->password)   ." ', ";
-$sql .= "first_name='".$database->escape_string($this->firstname) ." ', ";
-$sql .= "last_name='".$database->escape_string($this->lastname)  ." ' ";
-$sql .= " WHERE id=".$database->escape_string($this->id);
+$sql.=implode(", ", $properties_pairs);
+$sql.= " WHERE id=" .$database->escape_string($this->id);
+
 $database->query($sql);
 
 return  (mysqli_affected_rows($database->connection) == 1) ? true: false;
