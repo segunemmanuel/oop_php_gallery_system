@@ -2,6 +2,9 @@
 class User{
     // Abstractin db tables
     protected static $db_table="users";
+    protected static $db_table_fields=array('username','password', 'first_name','last_name');
+
+    
     public $id;
     public $username;
     public $password;
@@ -82,19 +85,25 @@ return array_key_exists($the_attribute,$object_prop);
 
 }
 
-
-
-
-
 protected function properties(){
-    return get_object_vars($this);
+
+    $properties=array();
+    foreach (self::$db_table_fields as $db_field) {
+if(property_exists($this,$db_field )){
+
+    $properties[$db_field]= $this->$db_field;
+
+}
+return $properties;
+
+    }
 }
 
 
 
 public function save(){
 // abstraction users
-    return isset($this->id)? $this->update(): $this->create();
+    return isset($this->id) ? $this->update(): $this->create();
 }
 
 
@@ -106,11 +115,8 @@ public function create(){
     global $database;
 $properties=$this->properties();
 
-    $sql="INSERT INTO " . self::$db_table." (". implode("," , array_keys($properties))   .")";
-$sql.="VALUES('".      implode("," , array_values($properties))        ."')";
-
-
-
+    $sql="INSERT INTO " . self::$db_table."(". implode("," , array_keys($properties))   . " ) ";
+$sql.="VALUES(' ".      implode(" ','  " , array_values($properties))        ."  ' ) ";
 
 
 if($database->query($sql)){

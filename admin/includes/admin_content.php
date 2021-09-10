@@ -13,13 +13,13 @@ Admin
 
 // echo  $found_user->username;
 
-// $user= new User();
-// $user->username="Segun  ";
-// $user->password="Adyemu ";
-// $user->firstname="SEmmai ";
-// $user->lastname="dbuifbib ";
+$user= new User();
+$user->username="Grace";
+$user->password="Hope";
+$user->first_name="SEmmai";
+$user->last_name="dbuifbib ";
 
-// // Inserting the user
+// Inserting the user
 // $user->create();
 
 // $user=User::find_all_users_by_id(3);
@@ -27,7 +27,7 @@ Admin
 
 
 // $user=User::find_all_users_by_id(3);
-$user->username="Hopes";
+// $user->username="Hopes";
 $user->save();
 
 
