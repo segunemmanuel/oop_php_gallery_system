@@ -33,10 +33,6 @@ class User extends Db_object{
 }
 
 
-
-
-
-
 protected function properties(){
 
     $properties=array();
