@@ -10,14 +10,20 @@ Admin
 <?php
 
  
-$user= new User();
-$user->username="kok";
-$user->password="Hope";
-$user->firstname="SEmmai";
-$user->lastname="dbuifbib ";
+// $user= new User();
+// $user->username="kok";
+// $user->password="Hope";
+// $user->firstname="SEmmai";
+// $user->lastname="dbuifbib ";
 
-// Inserting the user
-$user->create();
+// // Inserting the user
+// $user->create();
+
+
+$users=User::find_all();
+foreach($users as $user){
+    echo $user->username;
+}
  
 
 ?>
