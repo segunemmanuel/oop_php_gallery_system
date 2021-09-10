@@ -146,8 +146,8 @@ public function update(){
     }
     
     $sql="UPDATE " . self::$db_table." SET ";
-$sql.=implode(", ", $properties_pairs);
-$sql.= " WHERE id=" .$database->escape_string($this->id);
+$sql .=implode(", ", $properties_pairs);
+$sql .= " WHERE id=" . $database->escape_string($this->id);
 
 $database->query($sql);
 
