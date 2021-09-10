@@ -101,6 +101,22 @@ return $properties;
 
 
 
+
+protected function clean_properties(){
+// This espaces the inputes and prevents sql injection
+global $database;
+$clean_properties=array();
+foreach ($this->properties() as $key => $value) {
+
+$clean_properties[$key]=$database->escape_string($value);
+
+}
+return $clean_properties;
+
+}
+
+
+
 public function save(){
 // abstraction users
     return isset($this->id)? $this->update(): $this->create();
@@ -113,7 +129,7 @@ public function save(){
 // Create create method
 public function create(){
     global $database;
-$properties=$this->properties();
+$properties=$this->clean_properties();
 
     $sql="INSERT INTO " . self::$db_table. " ( ". implode("," , array_keys($properties))   . " ) ";
 $sql.="VALUES(' ".      implode(" ','  " , array_values($properties))        ."  ' ) ";
@@ -138,7 +154,7 @@ return false;
 public function update(){
     global $database;
 
-    $properties=$this->properties();
+    $properties=$this->clean_properties();
     $properties_pairs=array();
     foreach($properties as $key=>$value){
         $properties_pairs[]="{$key}='{$value}'";

@@ -9,29 +9,16 @@ Admin
 </h1>
 <?php
 
-$found_user=User::find_all_users_by_id(20);
-
-// echo  $found_user->username;
-
+ 
 $user= new User();
 $user->username="kok";
 $user->password="Hope";
-$user->first_name="SEmmai";
-$user->last_name="dbuifbib ";
+$user->firstname="SEmmai";
+$user->lastname="dbuifbib ";
 
 // Inserting the user
-$user->update();
-
-// $user=User::find_all_users_by_id(3);
-// $user->delete();
-
-
-// $user=User::find_all_users_by_id(3);
-// $user->username="Hopes";
-// $user->save();
-
-
-
+$user->create();
+ 
 
 ?>
 <ol class="breadcrumb">
