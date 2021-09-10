@@ -50,6 +50,9 @@ public static function verify_user($username, $password ) {
 
 
 
+    
+
+
 
 }
 
@@ -82,6 +85,13 @@ return array_key_exists($the_attribute,$object_prop);
 
 
 
+
+protected function properties(){
+    return get_object_vars($this);
+}
+
+
+
 public function save(){
 // abstraction users
     return isset($this->id)? $this->update(): $this->create();
@@ -94,6 +104,8 @@ public function save(){
 // Create create method
 public function create(){
     global $database;
+$properties=$this->properties();
+
     $sql="INSERT INTO " . self::$db_table." (username, password,first_name,last_name)";
 $sql.="VALUES('";
 $sql.=$database->escape_string($this->username). " ', ' ";
