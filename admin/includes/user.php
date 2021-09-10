@@ -10,14 +10,15 @@ class User{
     public $password;
     public $firstname;
     public $lastname;
-public static function find_all_users(){
- return self::find_this_query("SELECT * FROM users");
+
+public static function find_all(){
+ return self::find_this_query("SELECT * FROM " . self::$db_table. " ");
 }
 
 
-public static function find_all_users_by_id($id){
+public static function find_by_id($id){
     global $database;
-  $the_result_array=self::find_this_query("SELECT * FROM users WHERE id ={$id}");
+  $the_result_array=self::find_this_query("SELECT * FROM " . self::$db_table. " WHERE id ={$id}");
   return !empty($the_result_array) ?  array_shift($the_result_array) : false;
 //   return $found_user; 
 
@@ -50,11 +51,6 @@ public static function verify_user($username, $password ) {
     $the_result_array = self::find_this_query($sql);
 
     return !empty($the_result_array) ? array_shift($the_result_array) : false;
-
-
-
-    
-
 
 
 }
