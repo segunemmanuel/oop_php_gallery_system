@@ -10,23 +10,25 @@ Admin
 <?php
 
  
-// $user= new User();
-// $user->username="kok";
-// $user->password="Hope";
-// $user->firstname="SEmmai";
-// $user->lastname="dbuifbib ";
+$photo= new Photo();
+$photo->title="kok";
+$photo->description="Hope";
+$photo->filename="SEmmai";
+$photo->type="dbuifbib ";
 
 // // Inserting the user
-// $user->create();
+$photo->create();
  
 
-// $users=User::find_all();
-// foreach($users as $user){
-//     echo $user->username;
+// $photos=Photo::find_all();
+// foreach($photos as $photo){
+//     echo $photo->title;
 // }
 
-$user->username="NEW USER";
-$user->save();
+// $user->username="NEW USER";
+// $user->save();
+
+
 
 
  
