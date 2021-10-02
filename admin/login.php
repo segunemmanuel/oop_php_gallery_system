@@ -29,7 +29,7 @@ redirect("index.php");
 
 } else {
 
-$the_message = "Your password or username are incorrect";
+$the_message = "Your passworfd or username are incorrect";
 
 
 }
