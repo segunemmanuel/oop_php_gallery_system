@@ -18,12 +18,17 @@ Admin
 
 // // Inserting the user
 // $user->create();
+ 
+
+// $users=User::find_all();
+// foreach($users as $user){
+//     echo $user->username;
+// }
+
+$user->username="NEW USER";
+$user->save();
 
 
-$users=User::find_all();
-foreach($users as $user){
-    echo $user->username;
-}
  
 
 ?>
