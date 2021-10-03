@@ -10,20 +10,20 @@ Admin
 <?php
 
  
-$photo= new Photo();
-$photo->title="kok";
-$photo->description="Hope";
-$photo->filename="SEmmai";
-$photo->type="dbuifbib ";
+// $photo= new Photo();
+// $photo->title="kok";
+// $photo->description="Hope";
+// $photo->filename="SEmmai";
+// $photo->type="dbuifbib ";
 
 // // Inserting the user
-$photo->create();
+// $photo->create();
  
 
-// $photos=Photo::find_all();
-// foreach($photos as $photo){
-//     echo $photo->title;
-// }
+$photos=Photo::find_all();
+foreach($photos as $photo){
+    echo $photo->title;
+}
 
 // $user->username="NEW USER";
 // $user->save();
